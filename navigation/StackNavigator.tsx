@@ -8,7 +8,12 @@ import { createStaticNavigation } from '@react-navigation/native';
 
 const RootStack = createNativeStackNavigator({
     screens: {
-      Home: HomeScreen,
+      Home: {
+        screen:HomeScreen,
+        options:{
+          title:"Quiz Kategorileri",
+        },
+      },
       Quiz: QuizScreen,
       Result: ResultScreen,
     },
