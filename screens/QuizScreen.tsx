@@ -55,8 +55,15 @@ const QuizScreen = () => {
 
         ))}
       </View>
+
       <TouchableOpacity style={styles.hint} onPress={() => setshowHint(prev => !prev)}>
         <Text style={styles.hintText}>i</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[styles.prevQuestions,{backgroundColor: currentQuestionIndex === 0 ? "gray" : "dodgerblue"}]} 
+                      onPress={() => setcurrentQuestionIndex(prev => prev - 1)}
+                      disabled={currentQuestionIndex === 0}>
+        <Text style={styles.prevQuestionsText}> Önceki Soru</Text>
       </TouchableOpacity>
       {
         showHint && (<BottomSheet onChange={handleSheetChanges} ref={bottomSheetRef} enablePanDownToClose snapPoints={[200, "50%"]}>
@@ -124,6 +131,20 @@ const styles = StyleSheet.create({
   },
   bottomSheetDescription: {
     fontSize: 16
+  },
+  prevQuestions:{
+    backgroundColor: "dodgerblue",
+    paddingVertical:8,
+    paddingHorizontal:16,
+    position: "absolute",
+    bottom: 32,
+    left: 16,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  prevQuestionsText:{
+    fontSize:16,
+    color:"white",
   }
 
 })
