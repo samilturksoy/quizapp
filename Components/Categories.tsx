@@ -7,9 +7,10 @@ type Category = {
     name: string;
 }
 type Props = {
-    category: Category
+    category: Category;
+    isCompleted : boolean;
 }
-const Categories = ({ category: { id, name } }: Props) => {
+const Categories = ({ category: { id, name, isCompleted } }: Props) => {
     const navigation = useNavigation();
     // TODO: Fix Types
     // @ts-ignore
@@ -29,7 +30,7 @@ const Categories = ({ category: { id, name } }: Props) => {
                 fontSize: 24,
                 color: "white",
                 textAlign: 'center'
-            }}>{name}</Text>
+            }}>{name} {isCompleted && "✅"}</Text>
         </TouchableOpacity>
     )
 }
