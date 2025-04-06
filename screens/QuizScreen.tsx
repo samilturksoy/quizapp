@@ -34,7 +34,7 @@ const QuizScreen = () => {
     } else {
       // skor/total
       // @ts-ignore
-      navigation.navigate("Result", { score, total: quiezQuestions.length });
+      navigation.navigate("Result", { score, category, total: quiezQuestions.length });
     }
   }
   // callbacks
